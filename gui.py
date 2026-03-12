@@ -1,3 +1,7 @@
+"""
+Script che contiene l'implementazione dell'interfaccia grafica facoltativa
+"""
+
 import streamlit as st
 import joblib
 import pandas as pd
@@ -11,8 +15,8 @@ st.header('Dashboard - Smistamento recensioni hotel e analisi sentimento con mac
 #per evitare ricaricamenti inutili ad ogni interazione
 @st.cache_resource 
 def load_models():
-    dep = joblib.load(os.path.join('generated_file', 'model_department.pkl')) 
-    sent = joblib.load(os.path.join('generated_file', 'model_sentiment.pkl'))
+    dep = joblib.load(os.path.join('generated_files', 'model_department.pkl')) 
+    sent = joblib.load(os.path.join('generated_files', 'model_sentiment.pkl'))
     return dep, sent
 
 try:
@@ -63,7 +67,7 @@ if uploaded is not None:
             df_out['sentiment_confidence'] = probs_sent
             st.dataframe(df_out[['id','title','department_pred','department_confidence','sentiment_pred','sentiment_confidence']])
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S') #.strftime formatta oggetto datetime in stringa
-            out_name = f'generated_file/predictions_batch_{timestamp}.csv' #f per indicare che non è semplice testo, ma ci sono variabili
+            out_name = f'generated_files/predictions_batch_{timestamp}.csv' #f per indicare che non è semplice testo, ma ci sono variabili
             df_out.to_csv(out_name, index=False) #tolgo l'indice automatico che mette Pandas con index=False
             st.markdown(f"Risultati salvati in: `{out_name}`")
     except Exception as e:

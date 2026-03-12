@@ -1,7 +1,7 @@
 """
     Script di addestramento per il modello di machine learning, che classifica le recensioni in base al
     reparto di riferimento (Housekeeping, Reception, F&B) e sentiment (positivo/negativo).
-    Tutti i file generati (modelli, grafici, report sugli errori) sono salvati nella cartella generated_file/.
+    Tutti i file generati (modelli, grafici, report sugli errori) sono salvati nella cartella generated_files/.
 """
 
 import matplotlib.pyplot as pyplot #serve per creare grafici e visualizzazioni
@@ -23,11 +23,11 @@ from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classifi
 
 
 #Costanti e percorsi file:
-CSV_PATH = 'generated_file/reviews_dataset.csv'
+CSV_PATH = 'generated_files/reviews_dataset.csv'
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
-MODEL_DEP_PATH = os.path.join('generated_file', 'model_department.pkl') 
-MODEL_SENT_PATH = os.path.join('generated_file', 'model_sentiment.pkl')
+MODEL_DEP_PATH = os.path.join('generated_files', 'model_department.pkl') 
+MODEL_SENT_PATH = os.path.join('generated_files', 'model_sentiment.pkl')
 
 #Organizzo i dati:
 dataframe = pandas.read_csv(CSV_PATH) #leggo il file .csv che ho generato con il dataset al suo interno, in pandas si chiama DataFrame
@@ -116,7 +116,7 @@ def generate_f1_score_graph(y_true, y_pred, labels, title='', save_path='', figs
     pyplot.ylabel('F1-Score')
     pyplot.title(title)
     pyplot.tight_layout()
-    pyplot.savefig(os.path.join('generated_file', save_path))
+    pyplot.savefig(os.path.join('generated_files', save_path))
     pyplot.close()
     print(f"Salvato: {save_path}")
 
@@ -137,7 +137,7 @@ def generate_confusion_matrix_graph(conf_matr, labels, target_name='', save_path
     pyplot.ylabel('True label')
     pyplot.xlabel('Predicted label')
     pyplot.tight_layout()
-    pyplot.savefig(os.path.join('generated_file', save_path)) 
+    pyplot.savefig(os.path.join('generated_files', save_path)) 
     pyplot.close()
     print("Salvato: " + save_path)
 
@@ -202,7 +202,7 @@ def save_errors(X_test, y_true, y_pred, label_name, filename, dataframe):
     #Filtra solo gli errori
     errs = errors[errors[f'{label_name}_true'] != errors[f'{label_name}_pred']]
     #Salva su CSV
-    errs.to_csv(os.path.join('generated_file', filename), index=False)
+    errs.to_csv(os.path.join('generated_files', filename), index=False)
     print(f"Salvata lista errori: {filename} (n={len(errs)})")
 
 print("")
@@ -224,5 +224,5 @@ out = pandas.DataFrame({
 })
 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S') #timestamp per rendere unico il nome del file
 out_name = f'predictions_sample_{timestamp}.csv'
-out.to_csv(os.path.join('generated_file', out_name), index=False)
+out.to_csv(os.path.join('generated_files', out_name), index=False)
 print(f"Predizioni esportate in {out_name}")

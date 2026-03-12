@@ -1,5 +1,5 @@
 """
-    Generatore di dataset di recensioni, salva tutto sotto il percorso generated_file/reviews_dataset.csv 
+    Generatore di dataset di recensioni, salva tutto sotto il percorso generated_files/reviews_dataset.csv 
     in un file CSV con queste colonne: (id, title, body, department, sentiment)
 """
 
@@ -14,8 +14,8 @@ TEMPLATES = {
     'Housekeeping': {
         'positive': [
             {
-                "title": "Pulizia impeccabile",
-                "body": "Bagno sempre impeccabile, tutto a posto."
+                "title": "Impeccabile",
+                "body": "Bagno sempre impeccabile, nemmeno un po' di sporco, tutto a posto."
             },
             {
                 "title": "Camera perfettamente curata",
@@ -26,8 +26,8 @@ TEMPLATES = {
                 "body": "Lenzuola fresche e profumate, ottima pulizia."
             },
             {
-                "title": "Stanza confortevole",
-                "body": "Stanza confortevole, perfettamente curata."
+                "title": "Ottimo",
+                "body": "Stanza confortevole, perfettamente curata"
             },
             {
                 "title": "Servizio pulizie al top",
@@ -35,11 +35,11 @@ TEMPLATES = {
             },
             {
                 "title": "Pulizie quotidiane perfette",
-                "body": "Pulizie quotidiane accurate e precise."
+                "body": "Sono quotidiane, accurate e precise."
             },
             {
-                "title": "Pulizia buona",
-                "body": "Tutto pulito, ottimo."
+                "title": "Buono",
+                "body": "Tutto pulito"
             },
         ],
         'negative': [
@@ -56,8 +56,8 @@ TEMPLATES = {
                 "body": "Bagno maleodorante e non pulito. Orrendo!"
             },
             {
-                "title": "Pulizie superficiali",
-                "body": "Pulizie superficiali, niente è a posto."
+                "title": "Pulizie insoddisfacente",
+                "body": "Pulizie superficiali, niente era a posto"
             },
             {
                 "title": "Disordine all'arrivo",
@@ -77,7 +77,7 @@ TEMPLATES = {
         'positive': [
             {
                 "title": "Check-in veloce",
-                "body": "Check-in rapido e staff gentile e disponibile."
+                "body": "Check-in rapido e staff gentile e disponibile"
             },
             {
                 "title": "Ottimo",
@@ -93,7 +93,7 @@ TEMPLATES = {
             },
             {
                 "title": "Esperienza positiva",
-                "body": "Reception efficiente, check-out senza attese."
+                "body": "Reception efficiente, check-out senza attese"
             },
             {
                 "title": "Personale disponibile",
@@ -107,14 +107,14 @@ TEMPLATES = {
         'negative': [
             {
                 "title": "Reception lenta",
-                "body": "Reception lenta e scortese, check-in lungo."
+                "body": "Reception lenta e scortese, check-in lungo"
             },
             {
                 "title": "Reception oscena",
                 "body": "Tempi di attesa lunghissimi e personale arrogante."
             },
             {
-                "title": "Staff poco professionale",
+                "title": "Staff maleducato",
                 "body": "Staff poco professionale e scortese. Maleducati."
             },
             {
@@ -123,7 +123,7 @@ TEMPLATES = {
             },
             {
                 "title": "Problemi al check-in",
-                "body": "Check-in molto disorganizzato e caotico."
+                "body": "Check-in molto disorganizzato e caotico"
             },
             {
                 "title": "Maleducazione del personale",
@@ -142,7 +142,7 @@ TEMPLATES = {
                 "body": "Colazione abbondante e variegata."
             },
             {
-                "title": "Il cibo era squisito",
+                "title": "Il cibo era eccezionale",
                 "body": "Il cibo era squisito e ben presentato."
             },
             {
@@ -159,11 +159,11 @@ TEMPLATES = {
             },
             {
                 "title": "Menù vario e gustoso",
-                "body": "Menù molto vario e soddisfacente. Che buono."
+                "body": "Menù molto vario e soddisfacente. Che buono!"
             },
             {
                 "title": "Staff del ristorante cordiale",
-                "body": "Staff del ristorante cordiale e professionale."
+                "body": "Staff del ristorante cordiale e professionale, sopratutto i camerieri"
             },
         ],
         'negative': [
@@ -181,7 +181,7 @@ TEMPLATES = {
             },
             {
                 "title": "Ristorante lento",
-                "body": "Ristorante lento e disorganizzato."
+                "body": "Ristorante lento e disorganizzato. Camerieri arroganti e scortesi"
             },
             {
                 "title": "Qualità bassa",
@@ -215,7 +215,7 @@ AMBIGUOUS = [
     ("Cena tra alti e bassi", "Cibo buono ma il servizio molto lento.", 'F&B', 'negative'),
     ("Ristorante e camera", "Cena fantastica ma la stanza aveva un cattivo odore.", 'F&B', 'negative'),
 ]
-DATASET_PATH = os.path.join('generated_file', 'reviews_dataset.csv') #percorso di salvataggio del dataset generato
+DATASET_PATH = os.path.join('generated_files', 'reviews_dataset.csv') #percorso di salvataggio del dataset generato
 
 #(In totale (di default) saranno 300 recensioni non ambigue + 15 ambigue)
 def generate(non_ambiguous=300, ambiguous=15, out_path=DATASET_PATH): 

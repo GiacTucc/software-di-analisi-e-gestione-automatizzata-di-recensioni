@@ -4,6 +4,8 @@
 N.B. 
 I test sull'intero applicativo, compresi quelli sugli script di avvio e configurazione automatica, sono stati eseguiti solo su piattaforma Windows.
 
+Per motivi di riproducibilità, il set di dati che ho utilizzato per l'addestramento e i test nello sviluppo è incluso nel repository, sotto la directory "dataset".
+
 **Descrizione**
 Il progetto realizza un sistema di classificazione automatica delle recensioni di una struttura con due obiettivi:
 - **Assegnare il reparto corretto** (*Housekeeping, Reception, F&B*)
@@ -26,7 +28,7 @@ Il sistema comprende:
 - `requirements.txt` → Dipendenze
 
 Tutti i file generati vengono salvati nella cartella:
-`generated_file/`
+`generated_files/`
 
 Le librerie e le dipendenze necessarie per l’esecuzione del progetto verranno installate nella cartella: 
 `venv/`
@@ -63,7 +65,7 @@ Metodo manuale:
 ---
 
 **Output principali**
-All’interno della cartella `generated_file/` vengono salvati:
+All’interno della cartella `generated_files/` vengono salvati:
 - Dataset sintetico (CSV)
 - Modelli addestrati (.pkl)
 - Matrici di confusione

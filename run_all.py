@@ -44,9 +44,9 @@ def install_requirements():
 
 def run_project():
     print("Esecuzione progetto completo...")
-    if os.path.exists('generated_file'): #ogni volta che viene eseguito da zero ricrea la cartella dei file generati
-        shutil.rmtree('generated_file')
-    os.makedirs('generated_file', exist_ok=True)
+    if os.path.exists('generated_files'): #ogni volta che viene eseguito da zero ricrea la cartella dei file generati
+        shutil.rmtree('generated_files')
+    os.makedirs('generated_files', exist_ok=True)
 
     if platform.system() == 'Windows':
         python_path = os.path.join(VENV_DIR, 'Scripts', 'python.exe')
