@@ -20,12 +20,12 @@ Il sistema comprende:
 ---
 
 **Struttura del progetto**
-- `dataset_generator.py` → Genera il dataset sintetico ed esporta il CSV
-- `train_pipeline.py` → Addestra i modelli e calcola le metriche
-- `gui.py` → Dashboard Streamlit per utilizzare i modelli
-- `project_launcher.py` → Esecuzione sequenziale del progetto
-- `run_all.py` → Avvio completo automatico
-- `requirements.txt` → Dipendenze
+- `dataset_generator.py`: Genera il dataset sintetico ed esporta il CSV
+- `train_pipeline.py`: Addestra i modelli e calcola le metriche
+- `gui.py`: Dashboard Streamlit per utilizzare i modelli
+- `project_launcher.py`: Configura l'ambiente virtuale e installa le dipendenze necessarie
+- `run_all.py`: Avvio completo automatico
+- `requirements.txt`: Dipendenze
 
 Tutti i file generati vengono salvati nella cartella:
 `generated_files/`
